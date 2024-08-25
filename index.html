@@ -39,45 +39,46 @@
             color: #333;
             padding: 20px;
             box-sizing: border-box;
+            cursor: grab;
+        }
+        .note.dragging {
+            cursor: grabbing;
+            transition: transform 0.5s ease; /* Animation when tearing */
         }
         .note.hidden {
             opacity: 0;
-        }
-        .tear-button {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 10px 20px;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+            transition: opacity 0.5s ease;
         }
     </style>
 </head>
 <body>
 
-<div class="notepad">
-    <div class="note" id="note-1">Thought 1: "The journey of a thousand miles begins with one step."</div>
-    <div class="note hidden" id="note-2">Thought 2: "Life is what happens when you're busy making other plans."</div>
-    <div class="note hidden" id="note-3">Thought 3: "The purpose of our lives is to be happy."</div>
-    <div class="note hidden" id="note-4">Thought 4: "Get busy living or get busy dying."</div>
-    <button class="tear-button" onclick="tearPage()">Tear Page</button>
+<div class="notepad" id="notepad">
+    <div class="note" id="note-1" draggable="true" ondragstart="startDrag(event)">Thought 1: "The journey of a thousand miles begins with one step."</div>
+    <div class="note hidden" id="note-2" draggable="true" ondragstart="startDrag(event)">Thought 2: "Life is what happens when you're busy making other plans."</div>
+    <div class="note hidden" id="note-3" draggable="true" ondragstart="startDrag(event)">Thought 3: "The purpose of our lives is to be happy."</div>
+    <div class="note hidden" id="note-4" draggable="true" ondragstart="startDrag(event)">Thought 4: "Get busy living or get busy dying."</div>
 </div>
 
 <script>
     let currentNote = 1;
     const totalNotes = 4;
 
-    function tearPage() {
-        document.getElementById(`note-${currentNote}`).classList.add('hidden');
-        currentNote++;
-        if (currentNote > totalNotes) {
-            currentNote = 1; // Loop back to the first note
-        }
-        document.getElementById(`note-${currentNote}`).classList.remove('hidden');
+    function startDrag(event) {
+        const note = event.target;
+        note.classList.add('dragging');
+        
+        // Simulate tearing the page
+        setTimeout(() => {
+            note.classList.add('hidden');
+            note.classList.remove('dragging');
+            currentNote++;
+            if (currentNote > totalNotes) {
+                currentNote = 1; // Loop back to the first note
+            }
+            const nextNote = document.getElementById(`note-${currentNote}`);
+            nextNote.classList.remove('hidden');
+        }, 500); // Adjust time for the animation effect
     }
 </script>
 

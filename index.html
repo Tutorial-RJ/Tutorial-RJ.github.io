@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tearable Notepad</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .notepad {
+            width: 300px;
+            height: 400px;
+            background-color: #fff;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .note {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            color: #333;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .note.hidden {
+            opacity: 0;
+        }
+        .tear-button {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="notepad">
+    <div class="note" id="note-1">Thought 1: "The journey of a thousand miles begins with one step."</div>
+    <div class="note hidden" id="note-2">Thought 2: "Life is what happens when you're busy making other plans."</div>
+    <div class="note hidden" id="note-3">Thought 3: "The purpose of our lives is to be happy."</div>
+    <div class="note hidden" id="note-4">Thought 4: "Get busy living or get busy dying."</div>
+    <button class="tear-button" onclick="tearPage()">Tear Page</button>
+</div>
+
+<script>
+    let currentNote = 1;
+    const totalNotes = 4;
+
+    function tearPage() {
+        document.getElementById(`note-${currentNote}`).classList.add('hidden');
+        currentNote++;
+        if (currentNote > totalNotes) {
+            currentNote = 1; // Loop back to the first note
+        }
+        document.getElementById(`note-${currentNote}`).classList.remove('hidden');
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,156 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif; /* Ensure Poppins font is applied */
+  overflow-x: hidden;
+  scroll-snap-type: y mandatory; /* Enable snap effect */
+}
+
+section {
+  height: 100vh; /* Full height for each "slide" */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  scroll-snap-align: start; /* Snap alignment */
+  position: relative; /* For absolute positioning of gradient */
+  overflow: hidden; /* Hide overflow */
+  color: white; /* Default text color to white */
+  background-size: cover; /* Cover the entire section */
+  background-position: center; /* Center the background image */
+}
+
+#about {
+  background-image: url("https://i.pinimg.com/564x/5e/e8/24/5ee8245ce6a87d5b65aa21fc7563f64e.jpg"); /* Background image for About */
+}
+
+#services {
+  background-image: url("https://t4.ftcdn.net/jpg/01/98/24/71/360_F_198247162_JwrVkhqowZb4NJC24156nV6QYRhsV8Qf.jpg"); /* Background image for Services */
+}
+
+#success {
+  background-image: url("https://miro.medium.com/v2/resize:fit:1400/1*NzLGpAE4V7LJCfibfgIlHA@2x.png"); /* Background image for Success */
+}
+
+#blog {
+  background-image: url("https://img.freepik.com/premium-photo/dark-soft-blurred-abstract-red-blue-background-defocus-gradient-image_305419-617.jpg"); /* Background image for Blog */
+}
+
+#contact {
+  background-image: url("https://images.unsplash.com/photo-1665652475985-37e285aeff53?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZGFyayUyMGdyYWRpZW50fGVufDB8fDB8fHww"); /* Background image for Contact */
+}
+
+h1,
+h2 {
+  margin: 0;
+  font-family: "Poppins", sans-serif; /* Ensure Poppins font is used for headings */
+}
+
+h1 {
+  font-size: 3.5em;
+}
+
+h2 {
+  font-size: 2.5em;
+  margin-top: 20px;
+}
+
+p {
+  font-size: 1.2em;
+  text-align: center; /* Center text */
+  max-width: 800px; /* Constrain paragraph width */
+  font-family: "Poppins", sans-serif; /* Ensure Poppins font is used for paragraphs */
+}
+
+.cta-button {
+  margin-top: 20px;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  background: #ffd700; /* Bright button color */
+  color: #333;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+  background: #ffc107; /* Darker gold on hover */
+  transform: scale(1.05); /* Slightly enlarge button on hover */
+}
+
+nav {
+  position: fixed; /* Fixed navigation for easy access */
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+nav a {
+  margin: 0 15px;
+  color: white; /* Change navigation link color to white */
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.2em;
+  transition: color 0.3s ease;
+  font-family: "Poppins", sans-serif; /* Ensure Poppins font is used for nav links */
+}
+
+nav a:hover {
+  color: #ffd700; /* Gold color on hover */
+}
+
+footer {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 1em;
+  z-index: 10;
+  font-family: "Poppins", sans-serif; /* Ensure Poppins font is used for footer */
+}
+
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5em; /* Smaller heading for mobile */
+  }
+
+  h2 {
+    font-size: 1.8em; /* Smaller subheading for mobile */
+  }
+
+  p {
+    font-size: 1em; /* Smaller paragraph text for mobile */
+    padding: 0 20px; /* Add padding for better readability */
+  }
+  
+  .cta-button {
+    margin-top: 20px;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    background: #ffd700; /* Bright button color */
+    font-size: 1.2em;
+    font-family: "Poppins", sans-serif; /* Use Poppins font */
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+
+  .cta-button:hover {
+    background: #ffc107; /* Darker gold on hover */
+    transform: scale(1.15); /* Slightly enlarge button on hover */
+  }
+
+  nav a {
+    font-size: 1em; /* Smaller navigation links */
+  }
+
+  footer {
+    font-size: 0.9em; /* Smaller footer text */
+  }
+}

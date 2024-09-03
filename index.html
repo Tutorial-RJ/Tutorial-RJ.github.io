@@ -1,68 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Maanas Adiyodi</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <header>
-      <nav>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-        <a href="#about">Maanas Adiyodi</a>
-        <a href="#services">Timeline</a>
-        <a href="#blog">Blog</a>
-        <a href="#contact">Contact Us</a>
-      </nav>
-    </header>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #35424a;
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        nav {
+            margin: 20px 0;
+        }
+        nav a {
+            color: #ffffff;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        section {
+            padding: 20px;
+        }
+        .about, .projects {
+            margin: 20px auto;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+        }
+        .project {
+            margin: 15px 0;
+            padding: 15px;
+            background: #eaeaea;
+            border-radius: 5px;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background: #35424a;
+            color: #ffffff;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
 
-    <section id="about">
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <h1>Maanas Adiyodi</h1>
-      <h5>I am a 16 year old, who loves Graphic Designing</h5> 
-      <a href="https://www.instagram.com/adichitodi/" target="_blank" class="cta-button">Instagram</a>
-    </section>
+<header>
+    <h1>Your Name</h1>
+    <nav>
+        <a href="#about">About Me</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
 
-    <section id="services">
-      <h2>My Timeline</h2>
-      <p>Just a glimpse</p>
-      <ul>
-        <li>2024 - Entering Senior Secondary</li>
-        <li>2023 - Completed 10th</li>
-      </ul>
-    </section>
+<section id="about" class="about">
+    <h2>About Me</h2>
+    <p>Welcome to my portfolio! I am a [Your Profession] with a passion for [Your Interests]. I love creating beautiful and functional websites.</p>
+</section>
 
-    <section id="blog">
-      <h2>Blog</h2>
-      <p>Check out our latest articles:</p>
-      <ul>
-        <li>"5 Tips for Starting Your Own Business"</li>
-        <li>"How to Stay Motivated When Chasing Your Dreams"</li>
-        <li>"Networking: The Key to Success"</li>
-      </ul>
-    </section>
+<section id="projects" class="projects">
+    <h2>My Projects</h2>
+    <div class="project">
+        <h3>Project 1</h3>
+        <p>Description of Project 1. It was built using HTML, CSS, and JavaScript.</p>
+    </div>
+    <div class="project">
+        <h3>Project 2</h3>
+        <p>Description of Project 2. This project showcases my skills in [Technology/Skill].</p>
+    </div>
+    <div class="project">
+        <h3>Project 3</h3>
+        <p>Description of Project 3. This was a great learning experience where I worked with [Technology/Skill].</p>
+    </div>
+</section>
 
-    <section id="contact">
-      <h2>Contact Us</h2>
-      <p><strong>Phone:</strong> (123) 456-7890</p>
-      <p>Follow us on social media platforms (Instagram, Facebook, Twitter).</p>
-    </section>
+<footer id="contact">
+    <h2>Contact</h2>
+    <p>Email: youremail@example.com</p>
+</footer>
 
-    <footer>
-      <p>&copy; 2024 Maanas Adiyodi. All rights reserved.</p>
-    </footer>
-
-    <script>
-      function showEmailDialog() {
-        alert("You can contact me in instagram: @adichitodi");
-      }
-    </script>
-  </body>
+</body>
 </html>

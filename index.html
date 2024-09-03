@@ -13,18 +13,20 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            background-color: #f0f0f0;
+            background: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?fit=crop&w=1920&q=80') no-repeat center center fixed; /* Background image */
+            background-size: cover;
+            color: white;
         }
         .slide {
             display: none; /* Hide all slides by default */
             width: 100vw;
             height: 100vh;
             padding: 40px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
             position: relative;
-            transition: transform 0.5s ease;
+            transition: transform 0.5s ease-in-out;
             border-radius: 10px;
-            background: white;
+            background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
             overflow: hidden;
             text-align: center;
         }
@@ -35,6 +37,7 @@
             position: absolute;
             top: 20px;
             right: 20px;
+            z-index: 10;
         }
         nav {
             margin: 20px 0;
@@ -56,28 +59,27 @@
         h1 {
             font-size: 4em;
             margin: 0;
-            color: #4a90e2;
+            color: #f39c12;
         }
         h2 {
             font-size: 2.5em;
-            color: #333;
+            color: #ffffff;
             margin: 20px 0;
         }
         h3 {
-            color: #4a90e2;
+            color: #f39c12;
             margin: 10px 0;
         }
         p {
             line-height: 1.6;
-            color: #555;
             font-size: 1.2em;
             max-width: 800px;
             margin: 0 auto;
         }
         .skills {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            flex-direction: column;
+            align-items: center;
             margin-top: 20px;
         }
         .skill {
@@ -87,10 +89,40 @@
             margin: 5px;
             font-weight: bold;
             transition: background 0.3s;
+            width: 80%;
+            text-align: left;
         }
         .skill:hover {
             background: #4a90e2;
             color: #ffffff;
+        }
+        .progress-container {
+            width: 80%;
+            background: #ddd;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .progress {
+            height: 20px;
+            border-radius: 5px;
+            text-align: right;
+            color: white;
+            padding-right: 5px;
+        }
+        footer {
+            position: absolute;
+            bottom: 20px;
+            text-align: center;
+            width: 100%;
+        }
+        footer a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        footer a:hover {
+            color: #f39c12;
         }
     </style>
 </head>
@@ -108,34 +140,48 @@
 
 <div id="about" class="slide active">
     <h2>About Me</h2>
-    <p>Welcome to my portfolio! I am a passionate [Your Profession] with expertise in [Your Skills]. I strive to create innovative and effective solutions for my clients. With a strong background in [Your Background/Experience], I am dedicated to continuous learning and improvement.</p>
-    <p>My journey began when I [Your Personal Story or Motivation]. Since then, I have worked on various projects that have helped me hone my skills and expand my knowledge.</p>
+    <p>Welcome to my portfolio! I am a passionate [Your Profession] with expertise in [Your Skills]. I strive to create innovative and effective solutions. My journey began when I [Your Personal Story or Motivation].</p>
 </div>
 
 <div id="projects" class="slide">
     <h2>My Projects</h2>
     <h3>Project 1: Portfolio Website</h3>
-    <p>This project showcases my abilities in web development. Built with HTML, CSS, and JavaScript, it features a modern design and responsive layout.</p>
-    
+    <p>This project showcases my abilities in web development using HTML, CSS, and JavaScript.</p>
     <h3>Project 2: E-commerce Application</h3>
-    <p>A fully functional e-commerce platform created using React and Node.js. This project includes user authentication, product listings, and a shopping cart feature.</p>
-    
+    <p>A fully functional e-commerce platform created using React and Node.js.</p>
     <h3>Project 3: Data Visualization Dashboard</h3>
-    <p>Developed a dashboard using D3.js to visualize complex datasets. The dashboard includes interactive elements that allow users to filter and explore the data efficiently.</p>
+    <p>Developed a dashboard using D3.js to visualize complex datasets.</p>
 </div>
 
 <div id="skills" class="slide">
     <h2>Skills</h2>
-    <p>Here is a list of my key skills:</p>
+    <p>My key skills with proficiency levels:</p>
     <div class="skills">
-        <div class="skill">HTML</div>
-        <div class="skill">CSS</div>
-        <div class="skill">JavaScript</div>
-        <div class="skill">React</div>
-        <div class="skill">Node.js</div>
-        <div class="skill">D3.js</div>
-        <div class="skill">SQL</div>
-        <div class="skill">Git</div>
+        <div class="skill">HTML
+            <div class="progress-container">
+                <div class="progress" style="width: 90%; background: #4caf50;">90%</div>
+            </div>
+        </div>
+        <div class="skill">CSS
+            <div class="progress-container">
+                <div class="progress" style="width: 85%; background: #2196F3;">85%</div>
+            </div>
+        </div>
+        <div class="skill">JavaScript
+            <div class="progress-container">
+                <div class="progress" style="width: 80%; background: #f39c12;">80%</div>
+            </div>
+        </div>
+        <div class="skill">React
+            <div class="progress-container">
+                <div class="progress" style="width: 75%; background: #673ab7;">75%</div>
+            </div>
+        </div>
+        <div class="skill">Node.js
+            <div class="progress-container">
+                <div class="progress" style="width: 70%; background: #4caf50;">70%</div>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -146,6 +192,13 @@
     <p>LinkedIn: [Your LinkedIn Profile]</p>
     <p>GitHub: [Your GitHub Profile]</p>
 </div>
+
+<footer>
+    <p>Connect with me:</p>
+    <a href="#">LinkedIn</a> |
+    <a href="#">GitHub</a> |
+    <a href="#">Twitter</a>
+</footer>
 
 <script>
     function showSlide(index) {

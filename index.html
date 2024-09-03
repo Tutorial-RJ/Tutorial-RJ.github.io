@@ -6,16 +6,51 @@
     <title>Your Portfolio</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #ffffff;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        header {
-            background: #35424a;
+        header, footer {
+            background: #4a90e2;
             color: #ffffff;
+            width: 100%;
             padding: 20px 0;
             text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        section {
+            width: 80%;
+            background: #f4f4f4;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+            padding: 30px;
+            transition: transform 0.3s;
+        }
+        section:hover {
+            transform: scale(1.02);
+        }
+        h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+        h2 {
+            border-bottom: 2px solid #4a90e2;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            color: #4a90e2;
+        }
+        h3 {
+            margin-top: 20px;
+            color: #333;
+        }
+        p {
+            line-height: 1.6;
         }
         nav {
             margin: 20px 0;
@@ -24,32 +59,11 @@
             color: #ffffff;
             margin: 0 15px;
             text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
         }
-        section {
-            padding: 20px;
-        }
-        .about, .projects {
-            margin: 20px auto;
-            padding: 20px;
-            background: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            max-width: 800px;
-        }
-        .project {
-            margin: 15px 0;
-            padding: 15px;
-            background: #eaeaea;
-            border-radius: 5px;
-        }
-        footer {
-            text-align: center;
-            padding: 10px 0;
-            background: #35424a;
-            color: #ffffff;
-            position: relative;
-            bottom: 0;
-            width: 100%;
+        nav a:hover {
+            color: #f39c12;
         }
     </style>
 </head>
@@ -64,12 +78,12 @@
     </nav>
 </header>
 
-<section id="about" class="about">
+<section id="about">
     <h2>About Me</h2>
-    <p>Welcome to my portfolio! I am a [Your Profession] with a passion for [Your Interests]. I love creating beautiful and functional websites.</p>
+    <p>Welcome to my portfolio! I am a [Your Profession] with a passion for [Your Interests]. I create engaging and effective websites that provide great user experiences.</p>
 </section>
 
-<section id="projects" class="projects">
+<section id="projects">
     <h2>My Projects</h2>
     <div class="project">
         <h3>Project 1</h3>

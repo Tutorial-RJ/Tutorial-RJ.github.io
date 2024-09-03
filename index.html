@@ -13,16 +13,20 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            background-color: #ffffff;
+            background-color: #f0f0f0;
         }
         .slide {
             display: none; /* Hide all slides by default */
             width: 100vw;
             height: 100vh;
             padding: 40px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             position: relative;
             transition: transform 0.5s ease;
+            border-radius: 10px;
+            background: white;
+            overflow: hidden;
+            text-align: center;
         }
         .active {
             display: block; /* Show the active slide */
@@ -30,8 +34,7 @@
         header {
             position: absolute;
             top: 20px;
-            left: 20px;
-            color: #ffffff;
+            right: 20px;
         }
         nav {
             margin: 20px 0;
@@ -50,34 +53,26 @@
         nav button:hover {
             background: #f39c12;
         }
-        .about-slide {
-            background-color: #f4f4f4;
-        }
-        .projects-slide {
-            background-color: #e0f7fa;
-        }
-        .contact-slide {
-            background-color: #ffe0b2;
-        }
-        h1, h2 {
-            margin: 0;
-            color: #333;
-        }
         h1 {
-            font-size: 3em;
-            text-align: center;
+            font-size: 4em;
+            margin: 0;
+            color: #4a90e2;
         }
         h2 {
-            border-bottom: 2px solid #4a90e2;
-            margin-bottom: 20px;
-            text-align: center;
+            font-size: 2.5em;
+            color: #333;
+            margin: 20px 0;
         }
         h3 {
-            color: #333;
+            color: #4a90e2;
+            margin: 10px 0;
         }
         p {
             line-height: 1.6;
-            text-align: center;
+            color: #555;
+            font-size: 1.2em;
+            max-width: 800px;
+            margin: 0 auto;
         }
     </style>
 </head>
@@ -92,12 +87,12 @@
     </nav>
 </header>
 
-<div id="about" class="slide about-slide active">
+<div id="about" class="slide active">
     <h2>About Me</h2>
-    <p>Welcome to my portfolio! I am a [Your Profession] with a passion for [Your Interests]. I create engaging and effective websites that provide great user experiences.</p>
+    <p>Welcome to my portfolio! I am a passionate [Your Profession] with expertise in [Your Skills]. I strive to create innovative and effective solutions for my clients.</p>
 </div>
 
-<div id="projects" class="slide projects-slide">
+<div id="projects" class="slide">
     <h2>My Projects</h2>
     <h3>Project 1</h3>
     <p>Description of Project 1. It was built using HTML, CSS, and JavaScript.</p>
@@ -107,7 +102,7 @@
     <p>Description of Project 3. This was a great learning experience where I worked with [Technology/Skill].</p>
 </div>
 
-<div id="contact" class="slide contact-slide">
+<div id="contact" class="slide">
     <h2>Contact</h2>
     <p>Email: youremail@example.com</p>
 </div>

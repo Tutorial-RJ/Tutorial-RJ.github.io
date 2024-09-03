@@ -5,30 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Maanas Adiyodi</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
     <style>
-        /* Custom styles for full-screen sections */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f4f8; /* Light background for a fresh look */
+        }
+        header {
+            background-color: #007bff; /* Primary color for the header */
+            color: white;
+        }
         section {
-            padding: 60px 0; /* Adjust padding as needed */
-            min-height: 100vh; /* Make sections full height */
+            padding: 40px 20px; /* Responsive padding */
+            text-align: center;
         }
-        #about {
-            background-color: #f8f9fa; /* Light background for contrast */
-        }
-        #services, #blog, #contact {
-            background-color: #e9ecef; /* Light gray background */
+        .card {
+            margin: 15px 0; /* Spacing between cards */
         }
         footer {
-            background-color: #212529; /* Dark footer */
-            color: white; /* White text for footer */
-            padding: 20px 0; /* Padding for footer */
+            background-color: #343a40; /* Dark footer */
+            color: white;
+            padding: 20px 0;
         }
     </style>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#about">Maanas Adiyodi</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,36 +48,67 @@
         </nav>
     </header>
 
-    <section id="about" class="text-center">
+    <section id="about">
         <h1>Maanas Adiyodi</h1>
-        <h5>I am a 16-year-old, who loves Graphic Designing</h5> 
-        <a href="https://www.instagram.com/adichitodi/" target="_blank" class="btn btn-primary">Instagram</a>
+        <h5>I am a 16-year-old, who loves Graphic Designing</h5>
+        <a href="https://www.instagram.com/adichitodi/" target="_blank" class="btn btn-light">Instagram</a>
     </section>
 
-    <section id="services" class="container-fluid">
-        <h2 class="text-center">My Timeline</h2>
-        <p class="text-center">Just a glimpse</p>
-        <ul class="list-unstyled text-center">
-            <li>2024 - Entering Senior Secondary</li>
-            <li>2023 - Completed 10th</li>
-        </ul>
+    <section id="services" class="container">
+        <h2>My Timeline</h2>
+        <p>Just a glimpse</p>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">2024</h5>
+                        <p class="card-text">Entering Senior Secondary</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">2023</h5>
+                        <p class="card-text">Completed 10th</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="blog" class="container-fluid">
-        <h2 class="text-center">Blog</h2>
-        <p class="text-center">Check out our latest articles:</p>
-        <ul class="list-unstyled text-center">
-            <li>"5 Tips for Starting Your Own Business"</li>
-            <li>"How to Stay Motivated When Chasing Your Dreams"</li>
-            <li>"Networking: The Key to Success"</li>
-        </ul>
+    <section id="blog" class="container">
+        <h2>Blog</h2>
+        <p>Check out our latest articles:</p>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">5 Tips for Starting Your Own Business</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">How to Stay Motivated When Chasing Your Dreams</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Networking: The Key to Success</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="contact" class="container-fluid">
-        <h2 class="text-center">Contact Us</h2>
-        <p class="text-center"><strong>Phone:</strong> (123) 456-7890</p>
-        <p class="text-center">Follow us on social media platforms (Instagram, Facebook, Twitter).</p>
-        <!-- Optional: Add a contact form here -->
+    <section id="contact" class="container">
+        <h2>Contact Us</h2>
+        <p><strong>Phone:</strong> (123) 456-7890</p>
+        <p>Follow us on social media platforms (Instagram, Facebook, Twitter).</p>
     </section>
 
     <footer class="text-center">

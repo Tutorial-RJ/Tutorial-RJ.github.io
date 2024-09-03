@@ -74,6 +74,24 @@
             max-width: 800px;
             margin: 0 auto;
         }
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .skill {
+            background: #e0f7fa;
+            border-radius: 5px;
+            padding: 10px 15px;
+            margin: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .skill:hover {
+            background: #4a90e2;
+            color: #ffffff;
+        }
     </style>
 </head>
 <body>
@@ -83,28 +101,50 @@
     <nav>
         <button onclick="showSlide(0)">About Me</button>
         <button onclick="showSlide(1)">Projects</button>
-        <button onclick="showSlide(2)">Contact</button>
+        <button onclick="showSlide(2)">Skills</button>
+        <button onclick="showSlide(3)">Contact</button>
     </nav>
 </header>
 
 <div id="about" class="slide active">
     <h2>About Me</h2>
-    <p>Welcome to my portfolio! I am a passionate [Your Profession] with expertise in [Your Skills]. I strive to create innovative and effective solutions for my clients.</p>
+    <p>Welcome to my portfolio! I am a passionate [Your Profession] with expertise in [Your Skills]. I strive to create innovative and effective solutions for my clients. With a strong background in [Your Background/Experience], I am dedicated to continuous learning and improvement.</p>
+    <p>My journey began when I [Your Personal Story or Motivation]. Since then, I have worked on various projects that have helped me hone my skills and expand my knowledge.</p>
 </div>
 
 <div id="projects" class="slide">
     <h2>My Projects</h2>
-    <h3>Project 1</h3>
-    <p>Description of Project 1. It was built using HTML, CSS, and JavaScript.</p>
-    <h3>Project 2</h3>
-    <p>Description of Project 2. This project showcases my skills in [Technology/Skill].</p>
-    <h3>Project 3</h3>
-    <p>Description of Project 3. This was a great learning experience where I worked with [Technology/Skill].</p>
+    <h3>Project 1: Portfolio Website</h3>
+    <p>This project showcases my abilities in web development. Built with HTML, CSS, and JavaScript, it features a modern design and responsive layout.</p>
+    
+    <h3>Project 2: E-commerce Application</h3>
+    <p>A fully functional e-commerce platform created using React and Node.js. This project includes user authentication, product listings, and a shopping cart feature.</p>
+    
+    <h3>Project 3: Data Visualization Dashboard</h3>
+    <p>Developed a dashboard using D3.js to visualize complex datasets. The dashboard includes interactive elements that allow users to filter and explore the data efficiently.</p>
+</div>
+
+<div id="skills" class="slide">
+    <h2>Skills</h2>
+    <p>Here is a list of my key skills:</p>
+    <div class="skills">
+        <div class="skill">HTML</div>
+        <div class="skill">CSS</div>
+        <div class="skill">JavaScript</div>
+        <div class="skill">React</div>
+        <div class="skill">Node.js</div>
+        <div class="skill">D3.js</div>
+        <div class="skill">SQL</div>
+        <div class="skill">Git</div>
+    </div>
 </div>
 
 <div id="contact" class="slide">
     <h2>Contact</h2>
+    <p>If you'd like to get in touch, feel free to reach out!</p>
     <p>Email: youremail@example.com</p>
+    <p>LinkedIn: [Your LinkedIn Profile]</p>
+    <p>GitHub: [Your GitHub Profile]</p>
 </div>
 
 <script>

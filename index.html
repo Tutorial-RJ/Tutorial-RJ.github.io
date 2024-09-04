@@ -21,7 +21,7 @@
         header {
             width: 100%;
             background-color: rgba(0, 0, 0, 0.8); /* Darker semi-transparent background for navbar */
-            padding: 15px 20px;
+            padding: 2vh 3vw; /* Responsive padding */
             position: fixed; /* Fix navbar at the top */
             top: 0;
             z-index: 10;
@@ -36,8 +36,8 @@
         nav a {
             color: #ffffff;
             text-decoration: none;
-            padding: 10px 15px;
-            margin: 0 5px;
+            padding: 1.5vh 2vw; /* Responsive padding */
+            margin: 0 1vw; /* Responsive margin */
             border-radius: 5px;
             transition: background 0.3s, transform 0.2s;
         }
@@ -51,57 +51,58 @@
             align-items: center;
             justify-content: center;
             height: 100%; /* Full height for the container */
-            padding-top: 70px; /* Adjust for fixed navbar height */
+            padding-top: 10vh; /* Adjust for fixed navbar height */
             text-align: center;
-            overflow-y: auto; /* Allow scrolling if content exceeds viewport */
         }
         .section {
             width: 90%; /* Limit width for better readability */
             max-width: 800px; /* Maximum width for large screens */
-            padding: 20px;
+            padding: 5vh 4vw; /* Responsive padding */
             background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
-            margin: 10px; /* Space between sections */
+            margin: 2vh 0; /* Space between sections */
             border-radius: 10px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
         }
         h1 {
-            font-size: 2.5em; /* Adjusted font size for main title */
+            font-size: 5vw; /* Responsive font size */
             margin: 0;
             color: #f39c12;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
         }
         h2 {
-            font-size: 2em; /* Smaller font size for section headings */
+            font-size: 4vw; /* Responsive font size */
             color: #ffffff;
-            margin: 20px 0;
+            margin: 2vh 0;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
         }
         h3 {
+            font-size: 3vw; /* Responsive font size */
             color: #f39c12;
-            margin: 10px 0;
+            margin: 1.5vh 0;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
         }
         p {
             line-height: 1.6;
-            font-size: 1em; /* Adjusted font size for better readability */
-            margin: 0 auto 20px; /* Added margin for spacing */
+            font-size: 2vw; /* Responsive font size */
+            margin: 0 auto 2vh; /* Added margin for spacing */
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
         .skills {
             display: flex;
-            flex-direction: column; /* Stack skills vertically */
-            align-items: center; /* Center skills */
-            margin-top: 20px;
+            flex-wrap: wrap; /* Allow skills to wrap */
+            justify-content: center; /* Center the skills */
+            margin-top: 2vh;
         }
         .skill {
             background: #e0f7fa;
             border-radius: 5px;
-            padding: 10px 15px;
-            margin: 5px;
+            padding: 2vh 3vw; /* Responsive padding */
+            margin: 1vh; /* Responsive margin */
             font-weight: bold;
             transition: background 0.3s, transform 0.2s;
-            width: 80%; /* Reduced width for better spacing */
+            width: 25%; /* Responsive width for skills */
             text-align: left;
+            min-width: 120px; /* Minimum width for small screens */
         }
         .skill:hover {
             background: #4a90e2;
@@ -112,7 +113,7 @@
             width: 100%; /* Made progress container responsive */
             background: #ddd;
             border-radius: 5px;
-            margin: 10px 0;
+            margin: 1vh 0;
         }
         .progress {
             height: 20px;
@@ -123,13 +124,14 @@
         }
         footer {
             position: relative;
-            bottom: 20px;
+            bottom: 2vh;
             text-align: center;
             width: 100%;
+            padding: 2vh 0; /* Responsive padding */
         }
         footer a {
             color: white;
-            margin: 0 10px;
+            margin: 0 1vw;
             text-decoration: none;
             transition: color 0.3s;
         }
@@ -228,3 +230,4 @@
 
 </body>
 </html>
+

@@ -10,10 +10,10 @@
             font-family: 'Poppins', sans-serif; /* Changed font to Poppins */
             margin: 0;
             padding: 0;
-            overflow: hidden; /* Hide scrollbars */
             display: flex;
             flex-direction: column;
             align-items: center;
+            height: 100vh; /* Full viewport height */
             background: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?fit=crop&w=1920&q=80') no-repeat center center fixed; /* Background image */
             background-size: cover;
             color: white;
@@ -36,8 +36,8 @@
         nav a {
             color: #ffffff;
             text-decoration: none;
-            padding: 10px 20px;
-            margin: 0 10px;
+            padding: 10px 15px;
+            margin: 0 5px;
             border-radius: 5px;
             transition: background 0.3s, transform 0.2s;
         }
@@ -45,34 +45,33 @@
             background: #f39c12;
             transform: scale(1.05); /* Slightly enlarge on hover */
         }
-        .slide {
-            display: none; /* Hide all slides by default */
-            width: 100vw;
-            height: 100vh;
-            padding: 20px; /* Adjusted padding for mobile */
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-            position: relative;
-            transition: transform 0.5s ease-in-out;
-            border-radius: 10px;
-            background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
-            overflow: hidden;
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%; /* Full height for the container */
+            padding-top: 70px; /* Adjust for fixed navbar height */
             text-align: center;
-            margin-top: 60px; /* Adjust for fixed navbar height */
-            opacity: 0; /* Start hidden */
-            transition: opacity 0.5s ease-in-out; /* Smooth transition for opacity */
+            overflow-y: auto; /* Allow scrolling if content exceeds viewport */
         }
-        .active {
-            display: block; /* Show the active slide */
-            opacity: 1; /* Fade in */
+        .section {
+            width: 90%; /* Limit width for better readability */
+            max-width: 800px; /* Maximum width for large screens */
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+            margin: 10px; /* Space between sections */
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
         }
         h1 {
-            font-size: 3em; /* Adjusted font size for mobile */
+            font-size: 2.5em; /* Adjusted font size for main title */
             margin: 0;
             color: #f39c12;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
         }
         h2 {
-            font-size: 2.5em; /* Larger font size for section headings */
+            font-size: 2em; /* Smaller font size for section headings */
             color: #ffffff;
             margin: 20px 0;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
@@ -84,15 +83,14 @@
         }
         p {
             line-height: 1.6;
-            font-size: 1.1em; /* Slightly larger font size for better readability */
-            max-width: 90%; /* Made maximum width responsive */
-            margin: 0 auto;
+            font-size: 1em; /* Adjusted font size for better readability */
+            margin: 0 auto 20px; /* Added margin for spacing */
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
         .skills {
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            flex-direction: column; /* Stack skills vertically */
+            align-items: center; /* Center skills */
             margin-top: 20px;
         }
         .skill {
@@ -102,7 +100,7 @@
             margin: 5px;
             font-weight: bold;
             transition: background 0.3s, transform 0.2s;
-            width: 80%;
+            width: 80%; /* Reduced width for better spacing */
             text-align: left;
         }
         .skill:hover {
@@ -124,7 +122,7 @@
             padding-right: 5px;
         }
         footer {
-            position: absolute;
+            position: relative;
             bottom: 20px;
             text-align: center;
             width: 100%;
@@ -138,20 +136,6 @@
         footer a:hover {
             color: #f39c12;
         }
-
-        /* Media Queries for Responsive Design */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5em; /* Smaller font size for mobile */
-            }
-            h2 {
-                font-size: 2em; /* Smaller font size for mobile */
-            }
-            nav a {
-                padding: 8px 10px; /* Adjust padding for mobile */
-                margin: 0 5px; /* Adjust margin for mobile */
-            }
-        }
     </style>
 </head>
 <body>
@@ -159,66 +143,68 @@
 <header>
     <h1>Maanas Adiyodi</h1> <!-- Changed name to Maanas Adiyodi -->
     <nav>
-        <a href="javascript:void(0);" onclick="showSlide(0)">About Me</a>
-        <a href="javascript:void(0);" onclick="showSlide(1)">Projects</a>
-        <a href="javascript:void(0);" onclick="showSlide(2)">Skills</a>
-        <a href="javascript:void(0);" onclick="showSlide(3)">Contact</a>
+        <a href="javascript:void(0);" onclick="showSection('about')">About Me</a>
+        <a href="javascript:void(0);" onclick="showSection('projects')">Projects</a>
+        <a href="javascript:void(0);" onclick="showSection('skills')">Skills</a>
+        <a href="javascript:void(0);" onclick="showSection('contact')">Contact</a>
     </nav>
 </header>
 
-<div id="about" class="slide active">
-    <h2>About Me</h2>
-    <p>Welcome to my portfolio! I am a passionate [Your Profession] with expertise in [Your Skills]. I strive to create innovative and effective solutions. My journey began when I [Your Personal Story or Motivation].</p>
-</div>
+<div class="container">
+    <div id="about" class="section active">
+        <h2>About Me</h2>
+        <p>Welcome to my portfolio! I am a passionate [Your Profession] with expertise in [Your Skills]. I strive to create innovative and effective solutions. My journey began when I [Your Personal Story or Motivation].</p>
+    </div>
 
-<div id="projects" class="slide">
-    <h2>My Projects</h2>
-    <h3>Project 1: Portfolio Website</h3>
-    <p>This project showcases my abilities in web development using HTML, CSS, and JavaScript.</p>
-    <h3>Project 2: E-commerce Application</h3>
-    <p>A fully functional e-commerce platform created using React and Node.js.</p>
-    <h3>Project 3: Data Visualization Dashboard</h3>
-    <p>Developed a dashboard using D3.js to visualize complex datasets.</p>
-</div>
+    <div id="projects" class="section">
+        <h2>My Projects</h2>
+        <h3>Project 1: Portfolio Website</h3>
+        <p>This project showcases my abilities in web development using HTML, CSS, and JavaScript.</p>
+        <h3>Project 2: E-commerce Application</h3>
+        <p>A fully functional e-commerce platform created using React and Node.js.</p>
+        <h3>Project 3: Data Visualization Dashboard</h3>
+        <p>Developed a dashboard using D3.js to visualize complex datasets.</p>
+    </div>
 
-<div id="skills" class="slide">
-    <h2>Skills</h2>
-    <p>My key skills with proficiency levels:</p>
-    <div class="skills">
-        <div class="skill">HTML
-            <div class="progress-container">
-                <div class="progress" style="width: 90%; background: #4caf50;">90%</div>
+    <div id="skills" class="section">
+        <h2>Skills</h2>
+        <p>My key skills with proficiency levels:</p>
+        <div class="skills">
+            <div class="skill">HTML
+                <div class="progress-container">
+                    <div class="progress" style="width: 90%; background: #4caf50;">90%</div>
+                </div>
             </div>
-        </div>
-        <div class="skill">CSS
-            <div class="progress-container">
-                <div class="progress" style="width: 85%; background: #2196F3;">85%</div>
+            <div class="skill">CSS
+                <div class="progress-container">
+                    <div class="progress" style="width: 85%; background: #2196F3;">85%</div>
+                </div>
             </div>
-        </div>
-        <div class="skill">JavaScript
-            <div class="progress-container">
-                <div class="progress" style="width: 80%; background: #f39c12;">80%</div>
+            <div class="skill">JavaScript
+                <div class="progress-container">
+                    <div class="progress" style="width: 80%; background: #f39c12;">80%</div>
+                </div>
             </div>
-        </div>
-        <div class="skill">React
-            <div class="progress-container">
-                <div class="progress" style="width: 75%; background: #673ab7;">75%</div>
+            <div class="skill">React
+                <div class="progress-container">
+                    <div class="progress" style="width: 75%; background: #673ab7;">75%</div>
+                </div>
             </div>
-        </div>
-        <div class="skill">Node.js
-            <div class="progress-container">
-                <div class="progress" style="width: 70%; background: #4caf50;">70%</div>
+            <div class="skill">Node.js
+                <div class="progress-container">
+                    <div class="progress" style="width: 70%; background: #4caf50;">70%</div>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<div id="contact" class="slide">
-    <h2>Contact</h2>
-    <p>If you'd like to get in touch, feel free to reach out!</p>
-    <p>Email: youremail@example.com</p>
-    <p>LinkedIn: [Your LinkedIn Profile]</p>
-    <p>GitHub: [Your GitHub Profile]</p>
+    <div id="contact" class="section">
+        <h2>Contact</h2>
+        <p>If you'd like to get in touch, feel free to reach out!</p>
+        <p>Email: youremail@example.com</p>
+        <p>LinkedIn: [Your LinkedIn Profile]</p>
+        <p>GitHub: [Your GitHub Profile]</p>
+    </div>
 </div>
 
 <footer>
@@ -229,12 +215,12 @@
 </footer>
 
 <script>
-    function showSlide(index) {
-        const slides = document.querySelectorAll('.slide');
-        slides.forEach((slide, i) => {
-            slide.classList.remove('active');
-            if (i === index) {
-                slide.classList.add('active');
+    function showSection(sectionId) {
+        const sections = document.querySelectorAll('.section');
+        sections.forEach((section) => {
+            section.classList.remove('active');
+            if (section.id === sectionId) {
+                section.classList.add('active');
             }
         });
     }

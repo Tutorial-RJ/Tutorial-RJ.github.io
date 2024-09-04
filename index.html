@@ -4,235 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"> <!-- Link to Poppins font -->
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif; /* Changed font to Poppins */
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            height: 100vh; /* Full viewport height */
-            background: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?fit=crop&w=1920&q=80') no-repeat center center fixed; /* Background image */
-            background-size: cover;
-            color: white;
-        }
-        header {
-            width: 100%;
-            background-color: rgba(0, 0, 0, 0.8); /* Darker semi-transparent background for navbar */
-            padding: 2vh 3vw; /* Responsive padding */
-            position: fixed; /* Fix navbar at the top */
-            top: 0;
-            z-index: 10;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-        }
-        nav {
-            display: flex;
-        }
-        nav a {
-            color: #ffffff;
-            text-decoration: none;
-            padding: 1.5vh 2vw; /* Responsive padding */
-            margin: 0 1vw; /* Responsive margin */
-            border-radius: 5px;
-            transition: background 0.3s, transform 0.2s;
-        }
-        nav a:hover {
-            background: #f39c12;
-            transform: scale(1.05); /* Slightly enlarge on hover */
-        }
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100%; /* Full height for the container */
-            padding-top: 10vh; /* Adjust for fixed navbar height */
-            text-align: center;
-        }
-        .section {
-            width: 90%; /* Limit width for better readability */
-            max-width: 800px; /* Maximum width for large screens */
-            padding: 5vh 4vw; /* Responsive padding */
-            background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
-            margin: 2vh 0; /* Space between sections */
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-        }
-        h1 {
-            font-size: 4vw; /* Responsive font size */
-            margin: 0;
-            color: #f39c12;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-        }
-        h2 {
-            font-size: 3vw; /* Responsive font size */
-            color: #ffffff;
-            margin: 2vh 0;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
-        }
-        h3 {
-            font-size: 2.5vw; /* Responsive font size */
-            color: #f39c12;
-            margin: 1.5vh 0;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
-        }
-        p {
-            line-height: 1.6;
-            font-size: 1.8vw; /* Responsive font size */
-            margin: 0 auto 2vh; /* Added margin for spacing */
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-        }
-        .skills {
-            display: flex;
-            flex-wrap: wrap; /* Allow skills to wrap */
-            justify-content: center; /* Center the skills */
-            margin-top: 2vh;
-        }
-        .skill {
-            background: #e0f7fa;
-            border-radius: 5px;
-            padding: 2vh 3vw; /* Responsive padding */
-            margin: 1vh; /* Responsive margin */
-            font-weight: bold;
-            transition: background 0.3s, transform 0.2s;
-            width: 25%; /* Responsive width for skills */
-            text-align: left;
-            min-width: 120px; /* Minimum width for small screens */
-        }
-        .skill:hover {
-            background: #4a90e2;
-            color: #ffffff;
-            transform: scale(1.02); /* Slightly enlarge on hover */
-        }
-        .progress-container {
-            width: 100%; /* Made progress container responsive */
-            background: #ddd;
-            border-radius: 5px;
-            margin: 1vh 0;
-        }
-        .progress {
-            height: 20px;
-            border-radius: 5px;
-            text-align: right;
-            color: white;
-            padding-right: 5px;
-        }
-        footer {
-            position: relative;
-            bottom: 2vh;
-            text-align: center;
-            width: 100%;
-            padding: 2vh 0; /* Responsive padding */
-        }
-        footer a {
-            color: white;
-            margin: 0 1vw;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        footer a:hover {
-            color: #f39c12;
-        }
-
-        /* Media Query for Smaller Text on Large Screens */
-        @media (min-width: 1200px) {
-            h1 {
-                font-size: 3vw; /* Smaller font size for large screens */
-            }
-            h2 {
-                font-size: 2.5vw; /* Smaller font size for large screens */
-            }
-            h3 {
-                font-size: 2vw; /* Smaller font size for large screens */
-            }
-            p {
-                font-size: 1.5vw; /* Smaller font size for large screens */
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to CSS file -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet"> <!-- Link to Playfair Display font -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Link to Chart.js -->
 </head>
 <body>
 
 <header>
-    <h1>Maanas Adiyodi</h1> <!-- Changed name to Maanas Adiyodi -->
+    <h1>Maanas Adiyodi</h1> <!-- Your Name -->
     <nav>
-        <a href="javascript:void(0);" onclick="showSection('about')">About Me</a>
+        <a href="javascript:void(0);" onclick="showSection('about')">About</a>
         <a href="javascript:void(0);" onclick="showSection('projects')">Projects</a>
         <a href="javascript:void(0);" onclick="showSection('skills')">Skills</a>
         <a href="javascript:void(0);" onclick="showSection('contact')">Contact</a>
     </nav>
 </header>
 
-<div class="container">
-    <div id="about" class="section active">
+<main class="container">
+    <section id="about" class="section active">
         <h2>About Me</h2>
-        <p>Welcome to my portfolio! I am a passionate [Your Profession] with expertise in [Your Skills]. I strive to create innovative and effective solutions. My journey began when I [Your Personal Story or Motivation].</p>
-    </div>
+        <p>I am a passionate [Your Profession] with expertise in [Your Skills]. I enjoy creating innovative solutions and continuously improving my skills.</p>
+    </section>
 
-    <div id="projects" class="section">
+    <section id="projects" class="section">
         <h2>My Projects</h2>
-        <h3>Project 1: Portfolio Website</h3>
-        <p>This project showcases my abilities in web development using HTML, CSS, and JavaScript.</p>
-        <h3>Project 2: E-commerce Application</h3>
-        <p>A fully functional e-commerce platform created using React and Node.js.</p>
-        <h3>Project 3: Data Visualization Dashboard</h3>
-        <p>Developed a dashboard using D3.js to visualize complex datasets.</p>
-    </div>
-
-    <div id="skills" class="section">
-        <h2>Skills</h2>
-        <p>My key skills with proficiency levels:</p>
-        <div class="skills">
-            <div class="skill">HTML
-                <div class="progress-container">
-                    <div class="progress" style="width: 90%; background: #4caf50;">90%</div>
-                </div>
-            </div>
-            <div class="skill">CSS
-                <div class="progress-container">
-                    <div class="progress" style="width: 85%; background: #2196F3;">85%</div>
-                </div>
-            </div>
-            <div class="skill">JavaScript
-                <div class="progress-container">
-                    <div class="progress" style="width: 80%; background: #f39c12;">80%</div>
-                </div>
-            </div>
-            <div class="skill">React
-                <div class="progress-container">
-                    <div class="progress" style="width: 75%; background: #673ab7;">75%</div>
-                </div>
-            </div>
-            <div class="skill">Node.js
-                <div class="progress-container">
-                    <div class="progress" style="width: 70%; background: #4caf50;">70%</div>
-                </div>
-            </div>
+        <div class="card">
+            <h3>Project 1</h3>
+            <p>A brief description of this project goes here.</p>
         </div>
-    </div>
+        <div class="card">
+            <h3>Project 2</h3>
+            <p>A brief description of this project goes here.</p>
+        </div>
+        <div class="card">
+            <h3>Project 3</h3>
+            <p>A brief description of this project goes here.</p>
+        </div>
+    </section>
 
-    <div id="contact" class="section">
-        <h2>Contact</h2>
-        <p>If you'd like to get in touch, feel free to reach out!</p>
+    <section id="skills" class="section">
+        <h2>Skills</h2>
+        <div>
+            <canvas id="skillsChart" width="400" height="400"></canvas>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <h2>Contact Me</h2>
         <p>Email: youremail@example.com</p>
         <p>LinkedIn: [Your LinkedIn Profile]</p>
         <p>GitHub: [Your GitHub Profile]</p>
-    </div>
-</div>
+    </section>
+</main>
 
 <footer>
-    <p>Connect with me:</p>
-    <a href="#">LinkedIn</a> |
-    <a href="#">GitHub</a> |
-    <a href="#">Twitter</a>
+    <p>© 2023 Maanas Adiyodi. All rights reserved.</p>
 </footer>
 
 <script>
+    // Function to display sections
     function showSection(sectionId) {
         const sections = document.querySelectorAll('.section');
         sections.forEach((section) => {
@@ -242,6 +72,40 @@
             }
         });
     }
+
+    // Pie chart for skills
+    const ctx = document.getElementById('skillsChart').getContext('2d');
+    const skillsChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ['HTML', 'CSS', 'JavaScript', 'React', 'Node.js'],
+            datasets: [{
+                label: 'Skills',
+                data: [90, 85, 80, 75, 70], // Skill percentages
+                backgroundColor: [
+                    '#ff6384',
+                    '#36a2eb',
+                    '#ffce56',
+                    '#4bc0c0',
+                    '#9966ff'
+                ],
+                borderColor: '#fff',
+                borderWidth: 2
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: 'Skill Proficiency'
+                }
+            }
+        }
+    });
 </script>
 
 </body>

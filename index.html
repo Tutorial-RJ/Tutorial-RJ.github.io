@@ -3,162 +3,233 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Portfolio</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to CSS file -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet"> <!-- Link to Playfair Display and Roboto fonts -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Link to Chart.js -->
+    <title>My Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         body {
-            background-color: #121212;
-            color: #e0e0e0;
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-        }
-        header {
-            background: linear-gradient(135deg, #1f1f1f, #3a3a3a);
-            padding: 20px;
+            background-color: #f0f0f0; /* Light background color */
+            color: #333;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
             text-align: center;
+            transition: background-color 1s ease;
         }
-        header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5em;
-            margin: 0;
+        section {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+            position: relative;
+            padding: 0 1rem;
         }
-        nav a {
-            color: #e0e0e0;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: 700;
+        section.active {
+            opacity: 1;
+            transform: translateY(0);
         }
-        nav a:hover {
-            color: #ff4081;
+        .intro, .achievements, .contact, .work {
+            font-size: calc(2rem + 1.5vw); /* Larger responsive font size */
+            font-weight: 600;
+            transition: transform 0.3s ease;
         }
-        .container {
-            padding: 20px;
+        .intro span {
+            display: inline-block;
+            transition: transform 0.3s ease;
         }
-        .section {
-            display: none;
+        .intro span:hover {
+            transform: scale(1.1);
         }
-        .section.active {
-            display: block;
+        .intro span:nth-child(1) {
+            animation: loop 3s infinite;
         }
-        .card {
-            background: #1f1f1f;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            margin: 20px 0;
-            padding: 20px;
+        .intro span:nth-child(2) {
+            animation: loop 3s infinite 1.5s;
         }
-        footer {
-            background: linear-gradient(135deg, #1f1f1f, #3a3a3a);
-            padding: 10px;
+        @keyframes loop {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .content {
+            font-size: calc(1rem + 0.8vw); /* Larger responsive font size */
+            margin-top: 1rem;
             text-align: center;
+            max-width: 800px;
+            transition: transform 0.3s ease;
         }
-        footer p {
-            margin: 0;
+        .content:hover {
+            transform: scale(1.05);
+        }
+        .background-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+        .background-animation div {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            animation: move 10s linear infinite;
+        }
+        @keyframes move {
+            0% {
+                transform: translateY(0) translateX(0);
+            }
+            100% {
+                transform: translateY(100vh) translateX(100vw);
+            }
+        }
+        .work-gallery {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .work-gallery img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        .work-gallery img:hover {
+            transform: scale(1.1); /* Enlarge on hover */
         }
     </style>
 </head>
 <body>
-
-<header>
-    <h1>Maanas Adiyodi</h1> <!-- Your Name -->
-    <nav>
-        <a href="javascript:void(0);" onclick="showSection('about')">About</a>
-        <a href="javascript:void(0);" onclick="showSection('projects')">Projects</a>
-        <a href="javascript:void(0);" onclick="showSection('skills')">Skills</a>
-        <a href="javascript:void(0);" onclick="showSection('contact')">Contact</a>
-    </nav>
-</header>
-
-<main class="container">
-    <section id="about" class="section active">
-        <h2>About Me</h2>
-        <p>I am a passionate [Your Profession] with expertise in [Your Skills]. I enjoy creating innovative solutions and continuously improving my skills.</p>
-    </section>
-
-    <section id="projects" class="section">
-        <h2>My Projects</h2>
-        <div class="card">
-            <h3>Project 1</h3>
-            <p>A brief description of this project goes here.</p>
+    <section id="home" class="active">
+        <div class="intro"><span>Maanas</span> <span>Adiyodi</span></div>
+        <div class="content">
+            <p>Welcome to my portfolio! Here you'll find information about my achievements, projects, and how to contact me. Feel free to explore and learn more about my work.</p>
         </div>
-        <div class="card">
-            <h3>Project 2</h3>
-            <p>A brief description of this project goes here.</p>
-        </div>
-        <div class="card">
-            <h3>Project 3</h3>
-            <p>A brief description of this project goes here.</p>
+        <div class="background-animation">
+            <div style="top: 10%; left: 20%;"></div>
+            <div style="top: 30%; left: 40%;"></div>
+            <div style="top: 50%; left: 60%;"></div>
+            <div style="top: 70%; left: 80%;"></div>
+            <div style="top: 90%; left: 10%;"></div>
         </div>
     </section>
-
-    <section id="skills" class="section">
-        <h2>Skills</h2>
-        <div>
-            <canvas id="skillsChart" width="400" height="400"></canvas>
+    <section id="achievements">
+        <div class="achievements">My Achievements</div>
+        <div class="content">
+            <p>Here are some of my notable achievements:</p>
+            <ul>
+                <li>Developed a successful web application used by thousands of users.</li>
+                <li>Won first place in a national coding competition.</li>
+                <li>Published research papers in renowned tech journals.</li>
+            </ul>
+        </div>
+        <div class="background-animation">
+            <div style="top: 10%; left: 20%;"></div>
+            <div style="top: 30%; left: 40%;"></div>
+            <div style="top: 50%; left: 60%;"></div>
+            <div style="top: 70%; left: 80%;"></div>
+            <div style="top: 90%; left: 10%;"></div>
         </div>
     </section>
-
-    <section id="contact" class="section">
-        <h2>Contact Me</h2>
-        <p>Email: youremail@example.com</p>
-        <p>LinkedIn: [Your LinkedIn Profile]</p>
-        <p>GitHub: [Your GitHub Profile]</p>
+    <section id="work">
+        <div class="work">My Work</div>
+        <div class="content">
+            <p>Here are some of my recent projects:</p>
+            <div class="work-gallery">
+                <img src="https://cdn.glitch.global/abe44474-f121-467e-9ffb-99cb97984ae7/image1.jpg?v=1736671330501" alt="Project 1">
+                <img src="https://cdn.glitch.global/abe44474-f121-467e-9ffb-99cb97984ae7/image2.jpg?v=1736671357938" alt="Project 2">
+                <img src="https://cdn.glitch.global/abe44474-f121-467e-9ffb-99cb97984ae7/Silvia%20S14.jpeg?v=1736674450999" alt="Project 3">
+            </div>
+        </div>
+        <div class="background-animation">
+            <div style="top: 10%; left: 20%;"></div>
+            <div style="top: 30%; left: 40%;"></div>
+            <div style="top: 50%; left: 60%;"></div>
+            <div style="top: 70%; left: 80%;"></div>
+            <div style="top: 90%; left: 10%;"></div>
+        </div>
     </section>
-</main>
+    <section id="contact">
+        <div class="contact">Contact Me</div>
+        <div class="content">
+            <p>Feel free to reach out to me through the following channels:</p>
+            <ul>
+                <li>Email: maanas@example.com</li>
+                <li>LinkedIn: linkedin.com/in/maanasadiyodi</li>
+                <li>Twitter: twitter.com/maanasadiyodi</li>
+            </ul>
+        </div>
+        <div class="background-animation">
+            <div style="top: 10%; left: 20%;"></div>
+            <div style="top: 30%; left: 40%;"></div>
+            <div style="top: 50%; left: 60%;"></div>
+            <div style="top: 70%; left: 80%;"></div>
+            <div style="top: 90%; left: 10%;"></div>
+        </div>
+    </section>
+    <script>
+        const sections = document.querySelectorAll('section');
+        const options = {
+            threshold: 0.5
+        };
 
-<footer>
-    <p>© 2023 Maanas Adiyodi. All rights reserved.</p>
-</footer>
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    changeBackgroundColor(entry.target.id);
+                } else {
+                    entry.target.classList.remove('active');
+                }
+            });
+        }, options);
 
-<script>
-    // Function to display sections
-    function showSection(sectionId) {
-        const sections = document.querySelectorAll('.section');
-        sections.forEach((section) => {
-            section.classList.remove('active');
-            if (section.id === sectionId) {
-                section.classList.add('active');
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        function changeBackgroundColor(sectionId) {
+            const colors = {
+                home: '#f0f0f0', // Light background
+                achievements: '#e0e0e0', // Light grey
+                work: '#d0d0d0', // Slightly darker grey
+                contact: '#c0c0c0' // Even darker grey
+            };
+            document.body.style.backgroundColor = colors[sectionId];
+        }
+
+        let currentSection = 0;
+
+        function scrollToSection(index) {
+            sections[index].scrollIntoView({ behavior: 'smooth' });
+        }
+
+        window.addEventListener('wheel', (event) => {
+            if (event.deltaY > 0) {
+                currentSection = Math.min(currentSection + 1, sections.length - 1);
+            } else {
+                currentSection = Math.max(currentSection - 1, 0);
+            }
+            scrollToSection(currentSection);
+        });
+
+        window.addEventListener('keydown', (event) => {
+            if (event.key === 'ArrowDown') {
+                currentSection = Math.min(currentSection + 1, sections.length - 1);
+                scrollToSection(currentSection);
+            } else if (event.key === 'ArrowUp') {
+                currentSection = Math.max(currentSection - 1, 0);
+                scrollToSection(currentSection);
             }
         });
-    }
-
-    // Pie chart for skills
-    const ctx = document.getElementById('skillsChart').getContext('2d');
-    const skillsChart = new Chart(ctx, {
-        type: 'pie',
-        data: {
-            labels: ['HTML', 'CSS', 'JavaScript', 'React', 'Node.js'],
-            datasets: [{
-                label: 'Skills',
-                data: [90, 85, 80, 75, 70], // Skill percentages
-                backgroundColor: [
-                    '#ff6384',
-                    '#36a2eb',
-                    '#ffce56',
-                    '#4bc0c0',
-                    '#9966ff'
-                ],
-                borderColor: '#fff',
-                borderWidth: 2
-            }]
-        },
-        options: {
-            responsive: true,
-            plugins: {
-                legend: {
-                    position: 'top',
-                },
-                title: {
-                    display: true,
-                    text: 'Skill Proficiency'
-                }
-            }
-        }
-    });
-</script>
-
+    </script>
 </body>
 </html>

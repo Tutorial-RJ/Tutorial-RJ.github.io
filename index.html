@@ -578,6 +578,84 @@
             return weatherData;
         }
         
+// Function to process API data into our format
+function processWeatherData(data) {
+    const now = convertToIST(new Date());
+    
+    // Extract current weather data
+    const current = data.current;
+    const todayForecast = data.forecast.forecastday[0];
+    
+    // Check for rain in next few hours
+    let rainExpected = false;
+    let rainTime = null;
+    let rainfall = 0; // Default value
+    let duration = 0;
+    
+    // Look for rain in hourly forecast for today
+    for (let i = 0; i < todayForecast.hour.length; i++) {
+        const hour = todayForecast.hour[i];
+        const hourTime = new Date(hour.time);
+        
+        // If rain is expected in next 12 hours
+        if (hourTime > now && hourTime <= new Date(now.getTime() + 12 * 60 * 60 * 1000)) {
+            if (hour.chance_of_rain > 50) {
+                rainExpected = true;
+                rainTime = hourTime;
+                
+                // Handle potential missing or invalid rainfall data
+                if (typeof hour.totalprecip_mm === 'number' && !isNaN(hour.totalprecip_mm)) {
+                    rainfall = hour.totalprecip_mm;
+                } else {
+                    rainfall = 0; // Default to 0 if data is invalid
+                }
+                
+                // Estimate duration based on consecutive rainy hours
+                duration = 1;
+                break;
+            }
+        }
+    }
+    
+    const weatherData = {
+        location: `${data.location.name}, ${data.location.region}`,
+        temperature: Math.round(current.temp_c),
+        humidity: current.humidity,
+        windSpeed: Math.round(current.wind_kph),
+        uvIndex: current.uv,
+        today: {
+            date: formatDate(now),
+            rainExpected: rainExpected,
+            rainTime: rainTime,
+            rainfall: rainfall, // Use the validated rainfall value
+            duration: duration
+        },
+        forecast: []
+    };
+    
+    // Process 5-day forecast
+    const days = ['Today', 'Tomorrow', 'Wed', 'Thu', 'Fri'];
+    
+    data.forecast.forecastday.forEach((day, index) => {
+        if (index < 5) {
+            const condition = day.day.condition.text.toLowerCase();
+            let conditionType = 'sun';
+            
+            if (condition.includes('rain')) conditionType = 'rain';
+            else if (condition.includes('cloud')) conditionType = 'cloud';
+            
+            weatherData.forecast.push({
+                date: days[index],
+                temp: Math.round(day.day.avgtemp_c),
+                rainChance: day.day.daily_chance_of_rain,
+                condition: conditionType
+            });
+        }
+    });
+    
+    return weatherData;
+}
+
         // Function to render weather data
         function renderWeatherData(data) {
             const now = convertToIST(new Date());
@@ -609,11 +687,19 @@
                 endTime.setHours(endTime.getHours() + duration);
                 const endTimeFormatted = formatTime(endTime);
                 
+                // Handle invalid rainfall values
+                let rainfallDisplay = rainfall;
+                if (isNaN(rainfall) || rainfall === 0) {
+                    rainfallDisplay = "N/A";
+                } else {
+                    rainfallDisplay = `${Math.max(1, rainfall - 2)}-${rainfall + 3}`;
+                }
+                
                 weatherContent += `
                     <div class="rain-status">Rain expected today</div>
                     <div class="rain-time">${rainTimeFormatted}</div>
                     <div class="rain-details">
-                        <p>Expected rainfall: ${Math.max(1, rainfall-2)}-${rainfall+3}mm over ${duration} hours</p>
+                        <p>Expected rainfall: ${rainfallDisplay}mm over ${duration} hours</p>
                         <p>Duration: ${rainTimeFormatted} to ${endTimeFormatted}</p>
                     </div>
                 `;
@@ -651,9 +737,9 @@
             });
             
             weatherContent += `
+                        </div>
                     </div>
-                </div>
-            `;
+                `;
             
             document.getElementById("weather-content").innerHTML = weatherContent;
             document.getElementById("update-time").textContent = `Last updated: Today at ${updateTime} IST`;
